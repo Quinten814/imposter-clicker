@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body {background-color: lime; color: blue;}
+            h1   {color: blue;}
+            h2   {color: blue;}
+            button {background-color: #4CAF50; color: white; padding: 10px 20px;}
+            </style>
+            <title>imposter clicker</title>
+            <meta charset="UTF-8">
+            <meta name="a.validate.01" content="5e4135a703c2bb14b949fbaa9ef0244e8c51" />
+            <meta name="description" content="imposter">.
+            <meta name="author" content="quinten aka. quinnet">
+            <link rel="shortcut icon" href="/favicon copy.ico?" />
+            <script type="text/javascript">
+                function sus(number){
+        imposter = imposter + number
+        document.getElementById("imposter").innerHTML = imposter;
+    }
+                </script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var imposter = 0;
+            var knives = 0;
+var guns = 0;
+var vents = 0;
+            function buyKnife(){
+        var knifeCost = Math.floor(10 * Math.pow(1.1,knives));     //works out the cost of this knife
+        if(imposter >= knifeCost){                                   //checks that the player can afford the knife
+              knives = knives + 1                                   //increases number ofknives
+            imposter = imposter - knifeCost;                          //removes the imposter spent
+            document.getElementById('knives').innerHTML = knives;  //updates the number ofknives for the user
+            document.getElementById('imposter').innerHTML = imposter;  //updates the number of imposter for the user
+    }else{
+        alert("you no have enough imposters")
+    };
+    var nextCost = Math.floor(10 * Math.pow(1.1,knives));       //works out the cost of the next knife
+    document.getElementById('knifeCost').innerHTML = nextCost;  //updates the knife cost for the user
+};
+window.setInterval(function(){
+	
+	sus(knives);
+	
+}, 1000);
+function buyGun(){
+        var gunCost = Math.floor(50 * Math.pow(1.1,guns));     //works out the cost of this knife
+        if(imposter >= gunCost){                                   //checks that the player can afford the knife
+              guns = guns + 1                                   //increases number ofknives
+            imposter = imposter - gunCost;                          //removes the imposter spent
+            document.getElementById('guns').innerHTML = guns;  //updates the number ofknives for the user
+            document.getElementById('imposter').innerHTML = imposter;  //updates the number of imposter for the user
+    }else{
+        alert("you no have enough imposters")
+    };
+    var nextcost2 = Math.floor(50 * Math.pow(1.1,guns));       //works out the cost of the next knife
+    document.getElementById('gunCost').innerHTML = nextcost2;  //updates the knife cost for the user
+};
+    window.setInterval(function(){
+	
+	sus(guns*5);
+	
+}, 1000);
+function buyVent(){
+        var ventCost = Math.floor(100 * Math.pow(1.1,vents));     //works out the cost of this knife
+        if(imposter >= ventCost){                                   //checks that the player can afford the knife
+              vents = vents + 1                                   //increases number ofknives
+            imposter = imposter - ventCost;                          //removes the imposter spent
+            document.getElementById('vents').innerHTML = vents;  //updates the number ofknives for the user
+            document.getElementById('imposter').innerHTML = imposter;  //updates the number of imposter for the user
+    }else{
+        alert("you no have enough imposters")
+    };
+    var nextcost3 = Math.floor(100 * Math.pow(1.1,vents));       //works out the cost of the next knife
+    document.getElementById('ventCost').innerHTML = nextcost3;  //updates the knife cost for the user
+};
+window.setInterval(function(){
+	
+	sus(vents*10);
+	
+}, 1000);
+function prettify(input){
+    var output = Math.round(input * 1000000)/1000000;
+	return output;
+}
+function loadGame(){
+var savedGame = JSON.parse(localStorage.getItem("gameSave"));
+if (typeof savedGame.imposter !== "undefined") imposter = savedGame.imposter;
+if (typeof savedGame.guns !== "undefined") guns = savedGame.guns;
+if (typeof savedGame.knives !== "undefined") knives = savedGame.knives;
+if (typeof savedGame.vents !== "undefined") vents = savedGame.vents;
+if (typeof savedGame.gunCost !== "undefined") gunCost = savedGame.gunCost
+if (typeof savedGame.knifeCost !== "undefined") knifeCost = savedGame.knifeCost;
+if (typeof savedGame.ventCost !== "undefined") ventCost = savedGame.ventCost;
+}
+function saveGame(){
+    var gameSave = {
+imposter: imposter,
+knives: knives,
+knifeCost: knifeCost,
+gunCost: gunCost,
+ventCost: ventCost,
+guns: guns,
+vents: vents,
+    };
+    localStorage.setItem("gameSave", JSON.stringify(gameSave))
+}
+window.onload = function(){
+    loadGame();
+};
+   </script>
+    <p>imposters: <span id="imposter">0</span></p>
+        <button onClick="sus(1)">imposter</button>
+        <button onClick="buyKnife()">get a knife</button>
+        <button onClick="buyGun()">get a gun</button>
+        <button onClick="buyVent()">vent</button>
+        <p>Knives: <span id="knives"></span></p>
+        <p>Cost: <span id="knifeCost"></span></p>
+        <p>Guns: <span id="guns"></span></p>
+        <P>Cost: <span id="gunCost"></span></P>
+        <p>Vents: <span id="vents"></span></p>
+        <p>Cost: <span id="ventCost"></span></p>
+<h1>
+    <button onClick="saveGame()">save game</button>
+</h1>
+    </body>
+</html>
