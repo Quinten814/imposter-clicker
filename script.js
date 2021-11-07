@@ -49,7 +49,7 @@ document.getElementById('imposter').innerHTML = imposter;
 }else{
 alert("you no have enough imposters")
 };
-var nextcost3 = Math.floor(200*Math.pow(1.1,vents))
+var nextcost3 = Math.floor(100*Math.pow(1.1,vents))
 document.getElementById('ventCost').innerHTML = nextcost3  
 };
 window.setInterval(function(){
