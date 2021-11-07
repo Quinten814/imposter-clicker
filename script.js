@@ -99,6 +99,9 @@ var prestiges = 1;
 var prestigeCost = 10000;
 function prestige() {
     if(kills >= prestigeCost){
+knifeCost = 10;
+gunCost = 50;
+ventCost = 100;
 imposter = 0;
 knives = 0;
 guns = 0;
